@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OCRDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dms-E3-qWY">
+                                <rect key="frame" x="20" y="20" width="270" height="360"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dms-E3-qWY" secondAttribute="height" multiplier="3:4" id="AMo-zV-oio"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXk-FL-GkE">
+                                <rect key="frame" x="20" y="535" width="560" height="45"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="GLk-XE-Tup"/>
+                                </constraints>
+                                <state key="normal" title="Test"/>
+                                <connections>
+                                    <action selector="actionScanCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0sR-Ka-swt"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Tap &quot;Test&quot; to... well, test." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Isb-DQ-Nmr">
+                                <rect key="frame" x="20" y="388" width="560" height="139"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gns-Zg-8hn">
+                                <rect key="frame" x="310" y="20" width="270" height="360"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gns-Zg-8hn" secondAttribute="height" multiplier="3:4" id="16Q-Hx-nbb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gns-Zg-8hn" firstAttribute="leading" secondItem="Dms-E3-qWY" secondAttribute="trailing" constant="20" id="6iF-VI-IRl"/>
+                            <constraint firstItem="Dms-E3-qWY" firstAttribute="width" secondItem="gns-Zg-8hn" secondAttribute="width" id="7KS-rd-6fy"/>
+                            <constraint firstItem="eXk-FL-GkE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Jhl-ZJ-kr2"/>
+                            <constraint firstItem="Dms-E3-qWY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Mt0-hy-rm1"/>
+                            <constraint firstItem="eXk-FL-GkE" firstAttribute="top" secondItem="Isb-DQ-Nmr" secondAttribute="bottom" constant="8" id="TQg-H4-gkr"/>
+                            <constraint firstItem="gns-Zg-8hn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="V3Y-ra-XJn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eXk-FL-GkE" secondAttribute="bottom" constant="20" id="aUm-06-gOG"/>
+                            <constraint firstItem="Isb-DQ-Nmr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nUN-bm-w8A"/>
+                            <constraint firstItem="eXk-FL-GkE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pqN-FQ-4HV"/>
+                            <constraint firstItem="Dms-E3-qWY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="q4V-aN-vgf"/>
+                            <constraint firstItem="gns-Zg-8hn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rVt-6t-pob"/>
+                            <constraint firstItem="gns-Zg-8hn" firstAttribute="leading" secondItem="Dms-E3-qWY" secondAttribute="trailing" constant="20" id="wUg-jK-3lN"/>
+                            <constraint firstItem="Isb-DQ-Nmr" firstAttribute="top" secondItem="gns-Zg-8hn" secondAttribute="bottom" constant="8" id="znj-FP-aos"/>
+                            <constraint firstItem="Isb-DQ-Nmr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zz6-HP-SeA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageCapture" destination="gns-Zg-8hn" id="Bvc-uL-3EH"/>
+                        <outlet property="textRecognized" destination="Isb-DQ-Nmr" id="7es-0R-9fb"/>
+                        <outlet property="viewCapture" destination="Dms-E3-qWY" id="uvR-sr-gyA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="851" y="464"/>
+        </scene>
+    </scenes>
+</document>
