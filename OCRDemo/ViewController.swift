@@ -33,7 +33,7 @@ class ViewController: UIViewController, G8TesseractDelegate {
 		if let tess = G8Tesseract(language:"eng") {
 			//tess.language = "eng+ita"
 			tess.delegate = self
-			//tess.charWhitelist = "QWERTYUIOPASDFGHJKLLZXCVBNMqwertyuiopasdfghjklzxcvbnm0123456789"
+			tess.charWhitelist = "QWERTYUIOPASDFGHJKLLZXCVBNMqwertyuiopasdfghjklzxcvbnm0123456789,.:!"
 			//tess.charWhitelist = "0123456789"
 			//tess.image = UIImage(named: "sample.png")
 			//tess.recognize()
