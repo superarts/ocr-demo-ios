@@ -10,5 +10,8 @@
 #define Header_h
 
 #import <TesseractOCR/TesseractOCR.h>
+//#import <MMDrawerController/MMDrawerController.h>
+#import <LGSideMenuController/LGSideMenuController.h>
+#import <FVVerticalSlideView/FVVerticalSlideView.h>
 
 #endif /* Header_h */

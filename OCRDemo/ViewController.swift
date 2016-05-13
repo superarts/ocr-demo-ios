@@ -9,8 +9,10 @@
 import UIKit
 import TesseractOCR
 import AVFoundation
+import LGSideMenuController
+import FVVerticalSlideView
 
-class ViewController: UIViewController, G8TesseractDelegate {
+class ScanController: UIViewController, G8TesseractDelegate {
 	@IBOutlet var viewCapture: UIView!
 	@IBOutlet var textRecognized: UITextView!
 	@IBOutlet var imageCapture: UIImageView!
@@ -97,4 +99,59 @@ class ViewController: UIViewController, G8TesseractDelegate {
             }
         }
     }
+}
+
+/*
+class MainController: LGSideMenuController {
+	required init(coder: NSCoder) {
+		init(nibName: nil, bundle: nil)
+	}
+	override required init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+	//override init(nibName: NSString, bundle: NSBundle) {
+	//	init(coder: nil)
+	//}
+	//required init(coder: NSCoder) {
+		//super.init(coder: coder)
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let centerController = storyboard.instantiateViewControllerWithIdentifier("NavController")
+		super.init(rootViewController: centerController)
+
+		let leftController = storyboard.instantiateViewControllerWithIdentifier("LeftController")
+		let rightController = storyboard.instantiateViewControllerWithIdentifier("RightController")
+		let bottomController = storyboard.instantiateViewControllerWithIdentifier("BottomController") as! BottomController
+
+		setLeftViewEnabledWithWidth(200, presentationStyle:.SlideAbove, alwaysVisibleOptions:.OnNone)
+		setRightViewEnabledWithWidth(UIScreen.mainScreen().bounds.size.width, presentationStyle:.SlideAbove, alwaysVisibleOptions:.OnNone)
+		rootViewCoverColorForLeftView = UIColor.clearColor()
+		//swipeGestureArea = .Full
+		swipeGestureArea = .Borders
+		leftViewStatusBarStyle = .Default
+		leftViewStatusBarVisibleOptions = .OnAll
+		rightViewStatusBarStyle = .LightContent
+		rightViewStatusBarVisibleOptions = .OnAll
+		leftView().addSubview(leftController.view)
+		rightView().addSubview(rightController.view)
+
+		let bottom = FVVerticalSlideView(top: 0, bottom: 64, translationView: view)
+		bottom.setTopY(200)
+		bottom.addSubview(bottomController.view)
+		view.addSubview(bottom)
+		view.bringSubviewToFront(rightView())
+	}
+}
+*/
+
+class BottomController: UIViewController {
+	@IBAction func actionScan() {
+		print("xxx")
+	}
+}
+
+class NavController: UINavigationController {
+}
+
+class LeftController: UIViewController {
+}
+
+class RightController: UIViewController {
 }

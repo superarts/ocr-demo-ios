@@ -7,15 +7,77 @@
 //
 
 import UIKit
+//import MMDrawerController
+import LGSideMenuController
+import FVVerticalSlideView
+
+struct OD {
+	static var app: AppDelegate!
+}
+typealias od = OD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+	let storyboard = UIStoryboard(name: "Main", bundle: nil)
+	var navController: NavController!
+	var leftController: LeftController!
+	var rightController: RightController!
+	var bottomController: BottomController!
+	var sideController: LGSideMenuController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+		od.app = self
+
         // Override point for customization after application launch.
+		navController = storyboard.instantiateViewControllerWithIdentifier("NavController") as! NavController
+		leftController = storyboard.instantiateViewControllerWithIdentifier("LeftController") as! LeftController
+		rightController = storyboard.instantiateViewControllerWithIdentifier("RightController") as! RightController
+		bottomController = storyboard.instantiateViewControllerWithIdentifier("BottomController") as! BottomController
+
+		sideController = LGSideMenuController(rootViewController: navController)
+		sideController.setLeftViewEnabledWithWidth(200, presentationStyle:.SlideAbove, alwaysVisibleOptions:.OnNone)
+		sideController.setRightViewEnabledWithWidth(UIScreen.mainScreen().bounds.size.width, presentationStyle:.SlideAbove, alwaysVisibleOptions:.OnNone)
+		sideController.rootViewCoverColorForLeftView = UIColor.clearColor()
+		//sideController.swipeGestureArea = .Full
+		sideController.swipeGestureArea = .Borders
+		sideController.leftViewStatusBarStyle = .Default
+		sideController.leftViewStatusBarVisibleOptions = .OnAll
+		sideController.rightViewStatusBarStyle = .LightContent
+		sideController.rightViewStatusBarVisibleOptions = .OnAll
+		sideController.leftView().addSubview(leftController.view)
+		sideController.rightView().addSubview(rightController.view)
+
+		let bottom = FVVerticalSlideView(top: 0, bottom: 64, translationView: sideController.view)
+		bottom.setTopY(200)
+		bottom.addSubview(bottomController.view)
+		sideController.view.addSubview(bottom)
+		sideController.view.bringSubviewToFront(sideController.rightView())
+
+		/*
+		let drawer = MMDrawerController(centerViewController: center, leftDrawerViewController: leftController, rightDrawerViewController: rightController)
+        drawer.openDrawerGestureModeMask = .All
+		drawer.closeDrawerGestureModeMask = .All
+		drawer.showsShadow = false
+		drawer.maximumRightDrawerWidth = UIScreen.mainScreen().bounds.size.width
+		drawer.setDrawerVisualStateBlock() {
+			(controller, side, percent) -> Void in
+			var block: MMDrawerControllerDrawerVisualStateBlock!
+			if side == .Right {
+				block = MMDrawerVisualState.swingingDoorVisualStateBlock()
+			} else {
+				block = MMDrawerVisualState.slideVisualStateBlock()
+			}
+			block(controller, side, percent)
+		}
+		*/
+
+		window = UIWindow(frame: UIScreen.mainScreen().bounds)
+		window?.rootViewController = sideController
+		window?.makeKeyAndVisible()
+
         return true
     }
 
@@ -43,4 +105,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
